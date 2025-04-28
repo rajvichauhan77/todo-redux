@@ -16,16 +16,16 @@ const Todo = () => {
     return(
         <>
             <div className="mt-15  m-auto border p-5">
-                <input value={input} className='border m-auto rounded-xl p-4' type='text'onChange={(e)=>setInput(e.target.value)} />
+                <input value={input} className='border m-auto rounded-xl p-4' placeholder="Enter task" type='text'onChange={(e)=>setInput(e.target.value)} />
 
                 <br />
                 <br />
 
                 <div className="w-lg gap-3 ">
 
-                <button className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={() => dispatch(addTodo(input))}>Add</button>
+                <button class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => dispatch(addTodo(input))}>Add</button>
 
-                <button className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={() => dispatch(clearTodo())}>Clear</button>
+                <button class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => dispatch(clearTodo())}>Clear</button>
 
                 <br />
                 <br />
@@ -34,13 +34,13 @@ const Todo = () => {
 
                 {
                     todo?.map((ele) => (
-                        <div key={ele.id} className='flex gap-2 justify-between my-2 w-lg shadow shadow-amber-400 rounded-lg p-3'>
+                        <div key={ele.id} className='flex gap-2 justify-between my-2 w-lg shadow shadow-pink-200 rounded-lg p-3'>
                             <div>{ele.id}</div>
                             <div>{ele.title}</div>
                             <div>
                                 <button onClick={() => dispatch(updateTodo(ele.id))}>{ele.status ? "✅" : "❌"}</button>
                             </div>
-                            <div>  <button onClick={() => dispatch(removeTodo(ele.id))}>Remove</button></div>
+                            <div>  <button class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center m-auto me-2 mb-2" onClick={() => dispatch(removeTodo(ele.id))}>Remove</button></div>
                         </div>
                     ))
                 }
